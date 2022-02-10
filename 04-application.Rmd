@@ -1,0 +1,36 @@
+# Applications
+
+
+```{r setup, echo=FALSE, message=FALSE}
+library(leaflet)
+library(magrittr)
+library(dplyr)
+library(tidyverse)
+library(htmlwidgets)
+#load("irwin.RData")
+```
+```{r run-main, message=FALSE, echo=FALSE, warning=FALSE}
+source("./analysis/main.R")
+
+```
+### US IRWIN Wildfire Incidents, Calendar Year 2022 to Date
+```{r code, message=FALSE, echo=FALSE, warning=FALSE}
+library(leaflet)
+ #library(htmlwidgets)
+ #library(htmltools)
+
+# rr <- tags$div(
+#   HTML('<p>Wildfire Incidents by US County, 2010 - 2019<p>')
+# )
+ 
+leaflet(irwin) %>% 
+   addTiles() %>% 
+   addMarkers()
+
+```
+
+```{r examples2, message=FALSE, echo=FALSE, warning=FALSE}
+
+#TODO
+
+```
