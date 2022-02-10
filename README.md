@@ -1,2 +1,0 @@
-# kaneri-zine
-Kaneri Zine

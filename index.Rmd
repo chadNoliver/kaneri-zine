@@ -1,0 +1,33 @@
+--- 
+title: "Exploratory Analysis: Wildfires"
+#author: "Chad Oliver"
+date: "`r Sys.Date()`"
+site: bookdown::bookdown_site
+output: 
+  bookdown::gitbook:
+    config:
+      sharing: null
+documentclass: book
+bibliography: [book.bib, packages.bib]
+biblio-style: apalike
+link-citations: yes
+github-repo: chadNoliver/kaneri-zine
+description: "Kaneri Zine: Issue 1 - Initial Exporation of IRWIN"
+---
+
+# Preface
+
+This is an exploratory analysis of IRWIN data.  It is intended to inspire and guide Kaneri initiatives.
+
+The goal of this initial issue is to inspire  *what if* more than it is to explain *why*.
+
+
+## Disclaimer
+This is a draft - these are thoughts in progress.  I am open to and looking for feedback.
+
+```{r include=FALSE}
+# automatically create a bib database for R packages
+knitr::write_bib(c(
+  .packages(), 'bookdown', 'knitr', 'rmarkdown', 'lubridate'
+), 'packages.bib')
+```

@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>3 Data Sources/Literature | Exploratory Analysis: Wildfires</title>
+  <meta name="description" content="This is an exploratory analysis of Bureau of Land Management wildfire data intended to inspire and guide Kaneri initiatives" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="3 Data Sources/Literature | Exploratory Analysis: Wildfires" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This is an exploratory analysis of Bureau of Land Management wildfire data intended to inspire and guide Kaneri initiatives" />
+  <meta name="github-repo" content="chadNoliver/wildfire-report-20210119" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="3 Data Sources/Literature | Exploratory Analysis: Wildfires" />
+  
+  <meta name="twitter:description" content="This is an exploratory analysis of Bureau of Land Management wildfire data intended to inspire and guide Kaneri initiatives" />
+  
+
+<meta name="author" content="Chad Oliver" />
+
+
+<meta name="date" content="2022-02-09" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="intro.html"/>
+<link rel="next" href="methods.html"/>
+<script src="libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<script src="libs/htmlwidgets-1.5.4/htmlwidgets.js"></script>
+<link href="libs/leaflet-1.3.1/leaflet.css" rel="stylesheet" />
+<script src="libs/leaflet-1.3.1/leaflet.js"></script>
+<link href="libs/leafletfix-1.0.0/leafletfix.css" rel="stylesheet" />
+<script src="libs/proj4-2.6.2/proj4.min.js"></script>
+<script src="libs/Proj4Leaflet-1.0.1/proj4leaflet.js"></script>
+<link href="libs/rstudio_leaflet-1.3.1/rstudio_leaflet.css" rel="stylesheet" />
+<script src="libs/leaflet-binding-2.0.4.1/leaflet.js"></script>
+<script src="libs/leaflet-providers-1.9.0/leaflet-providers_1.9.0.js"></script>
+<script src="libs/leaflet-providers-plugin-2.0.4.1/leaflet-providers-plugin.js"></script>
+<link href="libs/leaflet-markercluster-1.0.5/MarkerCluster.css" rel="stylesheet" />
+<link href="libs/leaflet-markercluster-1.0.5/MarkerCluster.Default.css" rel="stylesheet" />
+<script src="libs/leaflet-markercluster-1.0.5/leaflet.markercluster.js"></script>
+<script src="libs/leaflet-markercluster-1.0.5/leaflet.markercluster.freezable.js"></script>
+<script src="libs/leaflet-markercluster-1.0.5/leaflet.markercluster.layersupport.js"></script>
+
+
+
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Preface</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#disclaimer"><i class="fa fa-check"></i><b>1.1</b> Disclaimer</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>2</b> Introduction</a></li>
+<li class="chapter" data-level="3" data-path="data-sourcesliterature.html"><a href="data-sourcesliterature.html"><i class="fa fa-check"></i><b>3</b> Data Sources/Literature</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="data-sourcesliterature.html"><a href="data-sourcesliterature.html#data-sources"><i class="fa fa-check"></i><b>3.1</b> Data Sources</a>
+<ul>
+<li class="chapter" data-level="3.1.1" data-path="data-sourcesliterature.html"><a href="data-sourcesliterature.html#bureau-of-land-management-wildfires"><i class="fa fa-check"></i><b>3.1.1</b> Bureau of Land Management Wildfires</a></li>
+<li class="chapter" data-level="3.1.2" data-path="data-sourcesliterature.html"><a href="data-sourcesliterature.html#noaa-soil-moisture"><i class="fa fa-check"></i><b>3.1.2</b> NOAA Soil Moisture</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="data-sourcesliterature.html"><a href="data-sourcesliterature.html#literature"><i class="fa fa-check"></i><b>3.2</b> Literature</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="data-sourcesliterature.html"><a href="data-sourcesliterature.html#nasa-paper"><i class="fa fa-check"></i><b>3.2.1</b> NASA Paper</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="data-sourcesliterature.html"><a href="data-sourcesliterature.html#displays"><i class="fa fa-check"></i><b>3.3</b> Displays</a>
+<ul>
+<li class="chapter" data-level="3.3.1" data-path="data-sourcesliterature.html"><a href="data-sourcesliterature.html#wildfire-risk"><i class="fa fa-check"></i><b>3.3.1</b> Wildfire Risk</a></li>
+<li class="chapter" data-level="3.3.2" data-path="data-sourcesliterature.html"><a href="data-sourcesliterature.html#land-fire"><i class="fa fa-check"></i><b>3.3.2</b> Land Fire</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="methods.html"><a href="methods.html"><i class="fa fa-check"></i><b>4</b> Methods</a></li>
+<li class="chapter" data-level="5" data-path="applications.html"><a href="applications.html"><i class="fa fa-check"></i><b>5</b> Applications</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="applications.html"><a href="applications.html#example-one-wildfire-incidents-by-us-county-2010---2019"><i class="fa fa-check"></i><b>5.1</b> Example one: Wildfire Incidents by US County, 2010 - 2019</a></li>
+<li class="chapter" data-level="5.2" data-path="applications.html"><a href="applications.html#examples-counties-with-points"><i class="fa fa-check"></i><b>5.2</b> Examples: Counties with Points</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="summary.html"><a href="summary.html"><i class="fa fa-check"></i><b>6</b> Summary</a></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Exploratory Analysis: Wildfires</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="data-sourcesliterature" class="section level1" number="3">
+<h1><span class="header-section-number">3</span> Data Sources/Literature</h1>
+<p>Review of Data Sources used for findings:</p>
+<div id="data-sources" class="section level2" number="3.1">
+<h2><span class="header-section-number">3.1</span> Data Sources</h2>
+<div id="bureau-of-land-management-wildfires" class="section level3" number="3.1.1">
+<h3><span class="header-section-number">3.1.1</span> Bureau of Land Management Wildfires</h3>
+<p>primary data source</p>
+</div>
+<div id="noaa-soil-moisture" class="section level3" number="3.1.2">
+<h3><span class="header-section-number">3.1.2</span> NOAA Soil Moisture</h3>
+<p>secondary data source</p>
+</div>
+</div>
+<div id="literature" class="section level2" number="3.2">
+<h2><span class="header-section-number">3.2</span> Literature</h2>
+<div id="nasa-paper" class="section level3" number="3.2.1">
+<h3><span class="header-section-number">3.2.1</span> NASA Paper</h3>
+</div>
+</div>
+<div id="displays" class="section level2" number="3.3">
+<h2><span class="header-section-number">3.3</span> Displays</h2>
+<div id="wildfire-risk" class="section level3" number="3.3.1">
+<h3><span class="header-section-number">3.3.1</span> Wildfire Risk</h3>
+<p><a href="https://wildfirerisk.org/" class="uri">https://wildfirerisk.org/</a></p>
+</div>
+<div id="land-fire" class="section level3" number="3.3.2">
+<h3><span class="header-section-number">3.3.2</span> Land Fire</h3>
+<p><a href="https://landfire.gov/" class="uri">https://landfire.gov/</a></p>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="intro.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="methods.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": null,
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>
