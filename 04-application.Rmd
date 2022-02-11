@@ -7,25 +7,30 @@ library(magrittr)
 library(dplyr)
 library(tidyverse)
 library(htmlwidgets)
-#load("irwin.RData")
+
 ```
 ```{r run-main, message=FALSE, echo=FALSE, warning=FALSE}
-source("./analysis/main.R")
+#source("./analysis/main.R")
 
 ```
-### US IRWIN Wildfire Incidents, Calendar Year 2022 to Date
+### US IRWIN Incidents, Created Date of 01/01/2021 - 02/10/2022
 ```{r code, message=FALSE, echo=FALSE, warning=FALSE}
-library(leaflet)
- #library(htmlwidgets)
- #library(htmltools)
-
-# rr <- tags$div(
-#   HTML('<p>Wildfire Incidents by US County, 2010 - 2019<p>')
-# )
- 
-leaflet(irwin) %>% 
-   addTiles() %>% 
-   addMarkers()
+load("map_set.RData")
+leaflet(map_set) %>%
+  addProviderTiles(providers$Esri.WorldTopoMap) %>%
+  addPolygons(data=map_set,
+              stroke = FALSE,
+              fillColor = ~pal_fun(map_set$count),
+              fillOpacity = 0.6,
+              smoothFactor = 0.5,
+              popup = p_popup,
+              group = "Counties") %>%
+  addMarkers(data=m,group="Points",clusterOptions = markerClusterOptions(),icon =  awesomeIcons(
+    icon = 'ios-close',
+    iconColor = 'black',
+    library = 'ion'), popup = points_popup) %>%
+  addLayersControl(overlayGroups = c("Counties", "Points"),
+                   options = layersControlOptions(collapsed = FALSE))
 
 ```
 
