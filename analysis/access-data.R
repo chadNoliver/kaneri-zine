@@ -69,6 +69,8 @@ points_popup <- paste0("<strong>Fire Name: ",m$`Fire Name`,"</></br>","<strong>S
                   "</></br>","<strong>Start Acres: ", m$`Start Acres`,"</strong>", "</></br>","<strong>Control Acres: ", m$`Control Acres`,"</strong>");
 pal_fun <- colorQuantile("YlOrRd", NULL, n = 9)
 save (m, file = "m.RData")
+
+
 save (pal_fun, file = "pal_fun.RData")
 save (p_popup, file = "p_popup.RData")
 leaflet(map_set) %>%

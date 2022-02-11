@@ -5,7 +5,7 @@
 #Runs main
 
 
-#source("./analysis/access-data.R")
-#source("./analysis/clean-data.R")
-source("./analysis/access-api.R")
 
+source("./analysis/access-irwin-api.R")
+source("./analysis/access-census-api.R")
+source("./analysis/stats-by-geo.R")
