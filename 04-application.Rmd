@@ -7,7 +7,7 @@ library(magrittr)
 library(dplyr)
 library(tidyverse)
 library(htmlwidgets)
-
+library(DT)
 ```
 ```{r run-main, message=FALSE, echo=FALSE, warning=FALSE}
 #source("./analysis/main.R")
@@ -63,4 +63,11 @@ leaflet(map_set) %>%
   addLayersControl(overlayGroups = c("Counties", "Points"),
                    options = layersControlOptions(collapsed = FALSE)
                    )
+```
+### Table US IRWIN Incidents 01/01/2021 - s02/10/2022
+```{r table, message=FALSE, echo=FALSE, warning=FALSE}
+datatable(map_set %>% 
+  dplyr::select(c(NAME,count,count_p_area,sum_final_acres,sum_daily_acres,sum_discovery_acres)
+  )
+)
 ```
