@@ -11,11 +11,16 @@ library(htmlwidgets)
 ```
 ```{r run-main, message=FALSE, echo=FALSE, warning=FALSE}
 #source("./analysis/main.R")
+load("map_set.RData")
+
 
 ```
 ### US IRWIN Incidents, Created Date of 01/01/2021 - 02/10/2022
 ```{r code, message=FALSE, echo=FALSE, warning=FALSE}
-load("map_set.RData")
+p_popup <- paste0("<strong>",map_set$NAME,"</></br>","<strong>Fires: ", map_set$count,"</strong>");
+points_popup <- paste0("<strong>Incident Name: ",m$`IncidentName`,"</></br>","<strong>Discovery Time: ", m$FireDiscoveryDateTime,"</strong>","</></br>","<strong>Containment Time: ", m$`ContainmentDateTime`,"</strong>",
+                       "</></br>","<strong>Discovery Acres: ", m$`DiscoveryAcres`,"</strong>", "</></br>","<strong>Daily Acres: ", m$`DailyAcres`,"</strong>");
+pal_fun <- colorQuantile("YlOrRd", NULL, n = 4)
 leaflet(map_set) %>%
   addProviderTiles(providers$Esri.WorldTopoMap) %>%
   addPolygons(data=map_set,
