@@ -40,13 +40,19 @@ counts <- m %>%
                    sum_discovery_acres = sum(`DiscoveryAcres`, na.rm=FALSE)
   ) %>% ungroup();
 
-View(m)
 m <- m %>%
   st_set_geometry("geoms")
 
 map_set <- left_join(census, counts, by="GEOID") %>%
   st_transform(4326) %>%
-  st_set_geometry("geometry") %>%
-  st_simplify(dTolerance=10^3, preserveTopology=TRUE)
+  st_set_geometry("geometry")
+
+map_set$area <- st_area(map_set$geometry)
+map_set$count_p_area <- (map_set$count/map_set$area)
+map_set$final_acres_p_area <- (map_set$sum_final_acres/map_set$area)
+map_set$daily_acres_p_area <- (map_set$sum_daily_acres/map_set$area)
+map_set$discovery_acres_p_area <- (map_set$sum_discovery_acres/map_set$area)
+#View(map_set)
+st_simplify(dTolerance=10^3, preserveTopology=TRUE)
 
 save(map_set,file = "map_set.RData")
