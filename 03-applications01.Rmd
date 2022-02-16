@@ -1,0 +1,39 @@
+# Applications 01
+
+```{r setupapps1, echo=FALSE, message=FALSE}
+library(leaflet)
+library(magrittr)
+library(dplyr)
+library(tidyverse)
+library(htmlwidgets)
+library(DT)
+```
+```{r run-main-01, message=FALSE, echo=FALSE, warning=FALSE}
+#source("./analysis/main.R")
+load("map_set.RData")
+
+
+```
+### US IRWIN Incidents, Created Date of 01/01/2021 - 02/10/2022
+```{r ex01, message=FALSE, echo=FALSE, warning=FALSE}
+p_popup <- paste0("<strong>",map_set$NAME,"</></br>","<strong>Fires: ", map_set$count,"</strong>");
+points_popup <- paste0("<strong>Incident Name: ",m$`IncidentName`,"</></br>","<strong>Discovery Time: ", m$FireDiscoveryDateTime,"</strong>","</></br>","<strong>Containment Time: ", m$`ContainmentDateTime`,"</strong>",
+                       "</></br>","<strong>Discovery Acres: ", m$`DiscoveryAcres`,"</strong>", "</></br>","<strong>Daily Acres: ", m$`DailyAcres`,"</strong>");
+pal_fun <- colorQuantile("YlOrRd", NULL, n = 4)
+leaflet(map_set) %>%
+  addProviderTiles(providers$Esri.WorldTopoMap) %>%
+  addPolygons(data=map_set,
+              stroke = FALSE,
+              fillColor = ~pal_fun(map_set$count),
+              fillOpacity = 0.6,
+              smoothFactor = 0.5,
+              popup = p_popup,
+              group = "Counties") %>%
+  addMarkers(data=m,group="Points",clusterOptions = markerClusterOptions(),icon =  awesomeIcons(
+    icon = 'ios-close',
+    iconColor = 'black',
+    library = 'ion'), popup = points_popup) %>%
+  addLayersControl(overlayGroups = c("Counties", "Points"),
+                   options = layersControlOptions(collapsed = FALSE))
+
+```

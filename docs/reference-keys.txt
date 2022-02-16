@@ -2,8 +2,16 @@ preface
 disclaimer
 intro
 data-sourcesliterature
+<<<<<<< HEAD
 methods
 applications
 us-irwin-incidents-created-date-of-01012021---02102022
 us-irwin-incidents-per-m2-created-date-of-01012021---02102022
+=======
+applications-01
+us-irwin-incidents-created-date-of-01012021---02102022
+applications-02
+us-irwin-incidents-per-m2-created-date-of-01012021---02102022
+table-us-irwin-incidents-01012021---s02102022
+>>>>>>> main
 summary

@@ -46,3 +46,7 @@ private/
 
 # Data
 *.RData
+<<<<<<< HEAD
+=======
+.RDataTmp
+>>>>>>> main
