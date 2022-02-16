@@ -1,7 +1,7 @@
 # Applications 02
 
 
-```{r setup, echo=FALSE, message=FALSE}
+```{r setupapps2, echo=FALSE, message=FALSE}
 library(leaflet)
 library(magrittr)
 library(dplyr)
@@ -10,7 +10,7 @@ library(htmlwidgets)
 library(DT)
 ```
 
-```{r run-main, message=FALSE, echo=FALSE, warning=FALSE}
+```{r run-main-02, message=FALSE, echo=FALSE, warning=FALSE}
 #source("./analysis/main.R")
 load("map_set.RData")
 
